@@ -3,6 +3,7 @@ using Blogy.BusinessLayer.Concrete;
 using Blogy.DataAccesLayer.Abstract;
 using Blogy.DataAccesLayer.Context;
 using Blogy.DataAccesLayer.EntityFramework;
+using Blogy.DataAccesLayer.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,0 +1,17 @@
+﻿@model Blogy.EntityLayer.Concrete.Category
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+
+<form method="post">
+    <div class="container">
+        @Html.HiddenFor(x=>x.CategoryId)
+        <label>Kategori Adı</label>
+        <div class="">
+            <input type="text" class="form-control" asp-for="CategoryName">
+        </div>
+    </div>
+    <button class="btn btn-outline-success">Güncelle</button>
+</form>

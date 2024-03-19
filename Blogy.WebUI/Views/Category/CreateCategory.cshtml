@@ -1,0 +1,21 @@
+﻿@model Blogy.EntityLayer.Concrete.Category
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+
+<div class="container">
+    <form method="post">
+
+        @Html.Label("Kategori Adı")
+        <br />
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.CategoryName, "", new { @style = "color:red" })
+        <br />
+
+        <button class="btn btn-info">Güncelle</button>
+    </form>
+</div>
+
+
