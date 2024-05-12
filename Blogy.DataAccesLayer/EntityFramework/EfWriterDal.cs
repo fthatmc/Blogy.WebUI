@@ -1,4 +1,5 @@
 ﻿using Blogy.DataAccesLayer.Abstract;
+using Blogy.DataAccesLayer.Context;
 using Blogy.DataAccesLayer.Repository;
 using Blogy.EntityLayer.Concrete;
 using System;
@@ -9,7 +10,13 @@ using System.Threading.Tasks;
 
 namespace Blogy.DataAccesLayer.EntityFramework
 {
-	public class EfWriterDal:GenericRepository<Writer>,IWriterDal
+	public class EfWriterDal : GenericRepository<Writer>, IWriterDal
 	{
-	}
+        
+        public EfWriterDal(BlogyContext context) : base(context)
+		{
+		}
+
+       
+    }
 }

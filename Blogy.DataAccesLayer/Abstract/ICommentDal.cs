@@ -9,5 +9,7 @@ namespace Blogy.DataAccesLayer.Abstract
 {
 	public interface ICommentDal : IGenericDal<Comment>
 	{
-	}
+		List<Comment> GetCommentsByArticleId(int id);
+        List<Comment> GetListAll(int id);
+    }
 }

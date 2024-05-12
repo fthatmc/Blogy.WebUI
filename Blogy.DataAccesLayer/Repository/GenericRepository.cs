@@ -12,7 +12,11 @@ namespace Blogy.DataAccesLayer.Repository
 	{
 		BlogyContext _context = new BlogyContext();
 
-        public void Delete(int id)
+		public GenericRepository(BlogyContext context)
+		{
+		}
+
+		public void Delete(int id)
 		{
 			var values = _context.Set<T>().Find(id);
 			_context.Set<T>().Remove(values);

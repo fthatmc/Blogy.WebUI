@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Blogy.DataAccesLayer.Context
 {
-	public class BlogyContext : IdentityDbContext
-	{
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+	public class BlogyContext : IdentityDbContext<AppUser,AppRole,int>
+    { //IdentityDbContext 19.03.2024 14:30
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer("server=ATMACA\\SQLEXPRESS; database=DbBlogy; Integrated security = true; TrustServerCertificate=True;");
 		}
@@ -21,6 +21,10 @@ namespace Blogy.DataAccesLayer.Context
 		public DbSet<Comment> Comments { get; set; }		
 		public DbSet<Tag> Tags { get; set; }
 		public DbSet<Writer> Writers { get; set; }
+		public DbSet<SocialMedia> SocialMedias { get; set; }
+		public DbSet<SendMessage> SendMessages { get; set; }
+		public DbSet<Notification> Notifications { get; set; }
+		public DbSet<Contact> Contacts { get; set; }
 
 	}
 }

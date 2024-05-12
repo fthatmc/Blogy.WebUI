@@ -1,5 +1,6 @@
 ﻿using Blogy.BusinessLayer.Abstract;
 using Blogy.DataAccesLayer.Abstract;
+using Blogy.Dto.Layer.CategoryDto;
 using Blogy.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,11 @@ namespace Blogy.BusinessLayer.Concrete
         public Category TGetById(int id)
         {
             return _categoryDal.GetById(id);
+        }
+
+        public List<CategoryCountDto> TGetCategoriesAndCount()
+        {
+            return _categoryDal.GetCategoriesAndCount();
         }
 
         public int TGetCategoryCount()

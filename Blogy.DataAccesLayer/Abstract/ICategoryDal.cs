@@ -1,4 +1,5 @@
-﻿using Blogy.EntityLayer.Concrete;
+﻿using Blogy.Dto.Layer.CategoryDto;
+using Blogy.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace Blogy.DataAccesLayer.Abstract
 	public interface ICategoryDal:IGenericDal<Category>
 	{
 		int GetCategoryCount();
-	}
+        List<CategoryCountDto> GetCategoriesAndCount();
+        
+    }
 }

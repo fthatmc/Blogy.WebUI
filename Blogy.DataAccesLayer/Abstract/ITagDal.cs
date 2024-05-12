@@ -9,5 +9,6 @@ namespace Blogy.DataAccesLayer.Abstract
 {
 	public interface ITagDal:IGenericDal<Tag>
 	{
-	}
+       
+    }
 }

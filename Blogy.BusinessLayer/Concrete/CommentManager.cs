@@ -28,15 +28,27 @@ namespace Blogy.BusinessLayer.Concrete
             return _commentDal.GetById(id);
         }
 
+        public List<Comment> TGetCommentsByArticleId(int id)
+        {
+            return _commentDal.GetCommentsByArticleId(id);
+        }
+
         public List<Comment> TGetListAll()
         {
             return _commentDal.GetListAll();
+        }
+
+        public List<Comment> TGetListAll(int id)
+        {
+            return _commentDal.GetListAll(id);
         }
 
         public void TInsert(Comment entity)
         {
             _commentDal.Insert(entity);
         }
+
+        
 
         public void TUpdate(Comment entity)
         {

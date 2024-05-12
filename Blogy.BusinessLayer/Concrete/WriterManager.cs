@@ -28,6 +28,8 @@ namespace Blogy.BusinessLayer.Concrete
             return _writerDal.GetById(id);
         }
 
+       
+
         public List<Writer> TGetListAll()
         {
             return _writerDal.GetListAll();

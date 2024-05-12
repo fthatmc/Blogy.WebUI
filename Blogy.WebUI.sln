@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogy.EntityLayer", "Blogy.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogy.DataAccesLayer", "Blogy.DataAccesLayer\Blogy.DataAccesLayer.csproj", "{508E29D2-9047-4DDB-B949-BBE48078AE02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogy.BusinessLayer", "Blogy.BusinessLayer\Blogy.BusinessLayer.csproj", "{615BADD7-6CD2-4DD4-94FC-A53FD11249A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blogy.BusinessLayer", "Blogy.BusinessLayer\Blogy.BusinessLayer.csproj", "{615BADD7-6CD2-4DD4-94FC-A53FD11249A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blogy.Dto.Layer", "Blogy.Dto.Layer\Blogy.Dto.Layer.csproj", "{DE5D6B8A-D492-448B-8016-5F4C1C8562E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{615BADD7-6CD2-4DD4-94FC-A53FD11249A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{615BADD7-6CD2-4DD4-94FC-A53FD11249A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{615BADD7-6CD2-4DD4-94FC-A53FD11249A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE5D6B8A-D492-448B-8016-5F4C1C8562E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE5D6B8A-D492-448B-8016-5F4C1C8562E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE5D6B8A-D492-448B-8016-5F4C1C8562E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE5D6B8A-D492-448B-8016-5F4C1C8562E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

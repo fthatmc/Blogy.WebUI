@@ -1,0 +1,75 @@
+﻿@model List<Article>
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+@await Component.InvokeAsync("_BlogListHeadComponentPartial")
+<body>
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close">
+                <span class="icofont-close js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+    @await Component.InvokeAsync("_BlogListNavbarComponentPartial")
+
+
+<div class="hero overlay inner-page bg-primary py-5">
+    <div class="container">
+        <div class="row align-items-center justify-content-center text-center pt-5">
+            <div class="col-lg-6">
+                <h1 class="heading text-white mb-3" data-aos="fade-up">Tüm Bloglar</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section search-result-wrap">
+    <div class="container">
+           
+            <div class="row">
+                <div class="col-12">
+                        <div class="heading">Aranan Kelime: @ViewBag.Search</div>
+                </div>
+            </div>
+        
+        <div class="row posts-entry">
+            <div class="col-lg-10">
+                @foreach (var item in Model)
+                {
+                    <div class="blog-entry d-flex blog-entry-search-item">
+                        <a href="/Blog/BlogDetail/@item.ArticleId" class="img-link me-4">
+                            <img src="@item.CoverImageUrl" alt="Image" class="img-fluid">
+                        </a>
+                        <div>
+                            <span class="date">@item.CreateDate.ToString("dd MMM yyyy") &bullet; <a href="#"></a></span>
+                            <h2><a href="/Blog/BlogDetail/@item.ArticleId">@item.Title</a></h2>
+                            <p>@Html.Raw(item.Description.Substring(0, 60)) ...</p>
+                            <p><a href="/Blog/BlogDetail/@item.ArticleId" class="btn btn-sm btn-outline-primary">Devamını Oku</a></p>
+                        </div>
+                    </div>
+                }
+
+
+               
+
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+    @await Component.InvokeAsync("_FooterComponentPartial")
+
+    @await Component.InvokeAsync("_ScriptComponentPartial")
+
+
+</body>
+</html>
