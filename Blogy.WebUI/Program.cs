@@ -47,18 +47,24 @@ builder.Services.AddScoped<IWriterDal, EfWriterDal>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<BlogyContext>().AddErrorDescriber<CustomIdentityValidator>();
 
 builder.Services.AddControllersWithViews();
+
+//Authorization
 builder.Services.ConfigureApplicationCookie(opts =>
 {
     opts.LoginPath = "/Login/Index";
 	opts.AccessDeniedPath = "/Login/Index/";
 });
 
+//çoklu dil desteði adým1
 builder.Services.AddLocalization(opt =>
 {
     opt.ResourcesPath = "Resources";
 });
 
+//çoklu dil desteði adým2
 builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
+
+//Authorization
 builder.Services.AddMvc(config =>
 {
 	var policy = new AuthorizationPolicyBuilder()
@@ -67,7 +73,7 @@ builder.Services.AddMvc(config =>
 	config.Filters.Add(new AuthorizeFilter(policy));
 });
 
-// resources klasörü eklenecek !!! #96 traversal 
+// resources klasörü eklenecek !!! #96 traversal  //çoklu dil desteði adým5
 
 var app = builder.Build();
 
@@ -87,7 +93,9 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+//çoklu dil desteði adým3
 var supertedCultures = new[] { "tr", "fr", "en", "de" };
+//çoklu dil desteði adým4
 var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supertedCultures[0]).AddSupportedCultures(supertedCultures).AddSupportedUICultures(supertedCultures);
 app.UseRequestLocalization(localizationOptions);
 
@@ -96,6 +104,7 @@ app.MapControllerRoute(
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
+//area eklendiðinde bunlar ekleniyor
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(

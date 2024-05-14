@@ -11,26 +11,31 @@
         </div>
 
         <div class="row">
+           
             @foreach(var x in Model)
             {
-                <div class="col-lg-4 mb-4">
-                    <div class="post-entry-alt">
-                        <a href="/Blog/BlogDetail/@x.ArticleId" style="height:230px;" class="img-link"><img src="@x.CoverImageUrl" alt="Image" class="img-fluid"></a>
-                        <div class="excerpt">
+                @if (x.Writer.Status==true)
+                {
+                    <div class="col-lg-4 mb-4">
+                        <div class="post-entry-alt">
+                            <a href="/Blog/BlogDetail/@x.ArticleId" style="height:230px;" class="img-link"><img src="@x.CoverImageUrl" alt="Image" class="img-fluid"></a>
+                            <div class="excerpt">
 
 
-                            <h2><a href="/Blog/BlogDetail/@x.ArticleId">@x.Title</a></h2>
-                            <div class="post-meta align-items-center text-left clearfix">
-                                <figure class="author-figure mb-0 me-3 float-start"><img src="@x.Writer.ImageUrl" alt="Image" class="img-fluid"></figure>
-                                <span class="d-inline-block mt-1">Yazar :  <a href="#">@x.Writer.Name</a></span>
-                                <span>&nbsp;-&nbsp; @x.CreateDate.ToShortDateString()</span>
+                                <h2><a href="/Blog/BlogDetail/@x.ArticleId">@x.Title</a></h2>
+                                <div class="post-meta align-items-center text-left clearfix">
+                                    <figure class="author-figure mb-0 me-3 float-start"><img src="@x.Writer.ImageUrl" alt="Image" class="img-fluid"></figure>
+                                    <span class="d-inline-block mt-1">Yazar :  <a href="#">@x.Writer.Name</a></span>
+                                    <span>&nbsp;-&nbsp; @x.CreateDate.ToShortDateString()</span>
+                                </div>
+
+                                <p>@x.Description.Substring(0, 100)...</p>
+                                <p><a href="/Blog/BlogDetail/@x.ArticleId" class="read-more">Devamını Okuyun..</a></p>
                             </div>
-
-                            <p>@x.Description.Substring(0,100)...</p>
-                            <p><a href="/Blog/BlogDetail/@x.ArticleId" class="read-more">Devamını Okuyun..</a></p>
                         </div>
                     </div>
-                </div>
+                }
+                
             }
             
             

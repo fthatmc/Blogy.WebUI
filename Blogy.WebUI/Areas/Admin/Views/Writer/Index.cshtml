@@ -1,0 +1,68 @@
+﻿@model List<Writer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Yazar Listesi</h4>
+                        <p class="card-subtitle mb-4">
+                            Yazar ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Adı</th>
+                                        <th>Açıklama</th>
+                                        <th>Resim</th>
+                                        <th>Sil</th>
+                                        <th>Durum</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <th scope="row">@count</th>
+                                            <td>@item.Name</td>
+                                            <td>@item.Description</td>
+                                            <td><img class="rounded-circle header-profile-user" alt="" src="@item.ImageUrl" /></td>
+                                            <td><a href="/Admin/Writer/DeleteWriter/@item.WriterId/" class="btn btn-outline-danger">Sil</a></td>
+                                            
+                                            @if (@item.Status == true)
+                                            {
+                                                <td><a href="/Admin/Writer/ChangeToStatusFalse/@item.WriterId" class="btn btn-outline-danger">Pasif Yap</a></td>
+                                            }
+                                            else
+                                            {
+                                                <td><a href="/Admin/Writer/ChangeToStatusTrue/@item.WriterId" class="btn btn-outline-success">Aktif Yap</a></td>
+                                            }
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+

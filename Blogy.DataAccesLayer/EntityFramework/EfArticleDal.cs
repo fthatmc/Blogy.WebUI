@@ -55,6 +55,7 @@ namespace Blogy.DataAccesLayer.EntityFramework
         public List<Article> GetArticleWithWriter()
         {
             var values = context.Articles.Include(x => x.Writer).ToList();
+
             return values;
         }
 

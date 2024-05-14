@@ -9,5 +9,7 @@ namespace Blogy.BusinessLayer.Abstract
 {
     public interface IWriterService : IGenericService<Writer>
     {
+        void TChangeToTrueWriterStatus(int id);
+        void TChangeToFalseWriterStatus(int id);
     }
 }

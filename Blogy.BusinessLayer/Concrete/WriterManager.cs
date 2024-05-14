@@ -18,6 +18,16 @@ namespace Blogy.BusinessLayer.Concrete
             _writerDal = writerDal;
         }
 
+        public void TChangeToFalseWriterStatus(int id)
+        {
+            _writerDal.ChangeToFalseWriterStatus(id);
+        }
+
+        public void TChangeToTrueWriterStatus(int id)
+        {
+            _writerDal.ChangeToTrueWriterStatus(id);
+        }
+
         public void TDelete(int id)
         {
             _writerDal.Delete(id);

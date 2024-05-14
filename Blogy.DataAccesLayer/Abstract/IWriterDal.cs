@@ -9,6 +9,7 @@ namespace Blogy.DataAccesLayer.Abstract
 {
 	public interface IWriterDal : IGenericDal<Writer>
 	{
-      
+        void ChangeToTrueWriterStatus(int id);
+        void ChangeToFalseWriterStatus(int id);
     }
 }

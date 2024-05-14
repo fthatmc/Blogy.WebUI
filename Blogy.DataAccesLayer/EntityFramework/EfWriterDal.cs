@@ -12,11 +12,23 @@ namespace Blogy.DataAccesLayer.EntityFramework
 {
 	public class EfWriterDal : GenericRepository<Writer>, IWriterDal
 	{
-        
+        BlogyContext context = new BlogyContext();
         public EfWriterDal(BlogyContext context) : base(context)
 		{
 		}
 
-       
+        public void ChangeToFalseWriterStatus(int id)
+        {
+            var values = context.Writers.Find(id);
+            values.Status = false;
+            context.SaveChanges();
+        }
+
+        public void ChangeToTrueWriterStatus(int id)
+        {
+            var values = context.Writers.Find(id);
+            values.Status = true;
+            context.SaveChanges();
+        }
     }
 }
