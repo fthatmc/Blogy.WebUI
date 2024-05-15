@@ -9,7 +9,10 @@ namespace Blogy.DataAccesLayer.Abstract
 {
 	public interface IArticleDal : IGenericDal<Article>
 	{
-		List<Article> GetArticleWithWriter();
+		List<Article> GetArticleStatusTrue();
+        void ChangeToTrueArticleStatus(int id);
+        void ChangeToFalseArticleStatus(int id);
+        List<Article> GetArticleWithWriter();
 		Writer GetWriterInfoByArticleWriter(int id);
         List<Article> GetArticlesByWriter(int id);
 		Article GetArticleWithWriterModel(int id);

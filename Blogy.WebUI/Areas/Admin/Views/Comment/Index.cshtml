@@ -1,4 +1,4 @@
-﻿@model List<Writer>
+﻿@model List<Comment>
 
 @{
     ViewData["Title"] = "Index";
@@ -14,18 +14,19 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Yazar Listesi</h4>
+                        <h4 class="card-title">Yorum Listesi</h4>
                         <p class="card-subtitle mb-4">
-                            Yazar ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+                            Yorum ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
                         </p>
                         <div class="table-responsive">
                             <table class="table mb-0">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Adı</th>
-                                        <th>Açıklama</th>
-                                        <th>Resim</th>
+                                        <th>Makale</th>
+                                        <th>Yorum Sahibi</th>
+                                        <th>İçerik</th>
+                                        <th>Tarih</th>
                                         <th>Sil</th>
                                         <th>Durum</th>
                                     </tr>
@@ -36,24 +37,26 @@
                                         count++;
                                         <tr>
                                             <th scope="row">@count</th>
-                                            <td>@item.Name</td>
-                                            <td>@item.Description</td>
-                                            <td><img class="rounded-circle header-profile-user" alt="" src="@item.ImageUrl" /></td>
-                                            <td><a href="/Admin/Writer/DeleteWriter/@item.WriterId/" class="btn btn-outline-danger">Sil</a></td>
-                                            
+                                            <td>@item.Article.Title</td>
+                                            <td>@item.AppUser.Email</td>
+                                            <td>@item.Content</td>
+                                            <td>@item.CommentDate.ToShortDateString()</td>
+                                            <td><a href="/Admin/Comment/DeleteComment/@item.CommentID/" class="btn btn-outline-danger">Sil</a></td>
+
                                             @if (@item.Status == true)
                                             {
-                                                <td><a href="/Admin/Writer/ChangeToStatusFalse/@item.WriterId" class="btn btn-outline-warning">Pasif Yap</a></td>
+                                                <td><a href="/Admin/Comment/ChangeToStatusFalse/@item.CommentID" class="btn btn-outline-warning">Pasif Yap</a></td>
                                             }
                                             else
                                             {
-                                                <td><a href="/Admin/Writer/ChangeToStatusTrue/@item.WriterId" class="btn btn-outline-success">Aktif Yap</a></td>
+                                                <td><a href="/Admin/Comment/ChangeToStatusTrue/@item.CommentID" class="btn btn-outline-success">Aktif Yap</a></td>
                                             }
 
                                         </tr>
                                     }
                                 </tbody>
                             </table>
+                           
                         </div>
 
                     </div>

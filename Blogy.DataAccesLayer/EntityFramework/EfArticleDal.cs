@@ -19,7 +19,21 @@ namespace Blogy.DataAccesLayer.EntityFramework
 		{
 		}
 
-		public List<Article> Current3Article(int id)
+        public void ChangeToFalseArticleStatus(int id)
+        {
+            var values = context.Articles.Find(id);
+            values.Status = false;
+            context.SaveChanges();
+        }
+
+        public void ChangeToTrueArticleStatus(int id)
+        {
+            var values = context.Articles.Find(id);
+            values.Status = true;
+            context.SaveChanges();
+        }
+
+        public List<Article> Current3Article(int id)
         {
             
             var values = context.Articles.Where(x => x.WriterId == 2).OrderByDescending(x=>x.CreateDate).Take(3).ToList();
@@ -54,7 +68,7 @@ namespace Blogy.DataAccesLayer.EntityFramework
 
         public List<Article> GetArticleWithWriter()
         {
-            var values = context.Articles.Include(x => x.Writer).ToList();
+            var values = context.Articles.Include(x => x.Writer).OrderByDescending(x => x.CreateDate).ToList();
 
             return values;
         }
@@ -75,6 +89,11 @@ namespace Blogy.DataAccesLayer.EntityFramework
         {
             var values = context.Articles.Where(x => x.AppUserId == id).ToList();
             return values;
+        }
+
+        public List<Article> GetArticleStatusTrue()
+        {
+            return context.Articles.Where(x=>x.Status==true).Include(x => x.Writer).ToList();
         }
 
         public Writer GetWriterInfoByArticleWriter(int id)

@@ -101,6 +101,19 @@ namespace Blogy.BusinessLayer.Concrete
            return _articleDal.GetListAll(id);
         }
 
-        
+        public List<Article> TGetArticleStatusTrue()
+        {
+            return _articleDal.GetArticleStatusTrue();
+        }
+
+        public void TChangeToTrueArticleStatus(int id)
+        {
+            _articleDal.ChangeToTrueArticleStatus(id);
+        }
+
+        public void TChangeToFalseArticleStatus(int id)
+        {
+            _articleDal.ChangeToFalseArticleStatus(id);
+        }
     }
 }

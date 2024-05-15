@@ -1,0 +1,30 @@
+﻿@model Tag
+
+@{
+    ViewData["Title"] = "UpdateTag";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Yeni Etiket Girişi</h4>
+                        <p class="card-subtitle mb-4">Etiket Güncelle işlemini burdan yapabilirsiniz. Veri girişinden sonra Güncelle butonuna tıklayarak işlemi tamamlayabilirsiniz.</p>
+                        <form method="post">
+                            <div class="form-group">
+                                <input type="hidden" asp-for="TagId" />
+                                <label for="TagTitle">Etiket Adı</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="TagTitle" placeholder="Etiket Adı Girişi Yapınız">
+                            </div>
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Etiket Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

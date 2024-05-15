@@ -1,0 +1,58 @@
+﻿@model List<Contact>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Adres ve İletişim Bilgileri Listesi</h4>
+                        <p class="card-subtitle mb-4">
+                            Adres ve İletişim Bilgileri ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Lokasyon</th>
+                                        <th>Çalışma Saatleri</th>
+                                        <th>Email</th>
+                                        <th>Tel.No</th>
+                                        <th>Güncelle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                       
+                                        <tr>
+                                            <td>#</td>
+                                            <td>@item.Location</td>
+                                            <td>@item.OpenHours</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.Call</td>
+                                            <td><a href="/Admin/Contact/UpdateContact/@item.ContactId/" class="btn btn-outline-success">Güncelle</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+

@@ -18,6 +18,16 @@ namespace Blogy.BusinessLayer.Concrete
             _commentDal = commentDal;
         }
 
+        public void TChangeToStatusFalse(int id)
+        {
+            _commentDal.ChangeToStatusFalse(id);
+        }
+
+        public void TChangeToStatusTrue(int id)
+        {
+            _commentDal.ChangeToStatusTrue(id);
+        }
+
         public void TDelete(int id)
         {
             _commentDal.Delete(id);
@@ -31,6 +41,11 @@ namespace Blogy.BusinessLayer.Concrete
         public List<Comment> TGetCommentsByArticleId(int id)
         {
             return _commentDal.GetCommentsByArticleId(id);
+        }
+
+        public List<Comment> TGetCommentsWithArticleAndUser()
+        {
+           return _commentDal.GetCommentsWithArticleAndUser();
         }
 
         public List<Comment> TGetListAll()

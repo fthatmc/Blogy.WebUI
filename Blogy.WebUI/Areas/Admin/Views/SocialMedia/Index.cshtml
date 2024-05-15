@@ -1,4 +1,4 @@
-﻿@model List<Writer>
+﻿@model List<SocialMedia>
 
 @{
     ViewData["Title"] = "Index";
@@ -14,9 +14,9 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Yazar Listesi</h4>
+                        <h4 class="card-title">Sosyal Medya Listesi</h4>
                         <p class="card-subtitle mb-4">
-                            Yazar ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
+                            Sosyal Medya ile ilgili işlemleri buradan gerçekleştirebilirsiniz.
                         </p>
                         <div class="table-responsive">
                             <table class="table mb-0">
@@ -24,10 +24,10 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Adı</th>
-                                        <th>Açıklama</th>
-                                        <th>Resim</th>
+                                        <th>İcon</th>
+                                        <th>Url</th>
                                         <th>Sil</th>
-                                        <th>Durum</th>
+                                        <th>Güncelle</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -37,23 +37,16 @@
                                         <tr>
                                             <th scope="row">@count</th>
                                             <td>@item.Name</td>
-                                            <td>@item.Description</td>
-                                            <td><img class="rounded-circle header-profile-user" alt="" src="@item.ImageUrl" /></td>
-                                            <td><a href="/Admin/Writer/DeleteWriter/@item.WriterId/" class="btn btn-outline-danger">Sil</a></td>
-                                            
-                                            @if (@item.Status == true)
-                                            {
-                                                <td><a href="/Admin/Writer/ChangeToStatusFalse/@item.WriterId" class="btn btn-outline-warning">Pasif Yap</a></td>
-                                            }
-                                            else
-                                            {
-                                                <td><a href="/Admin/Writer/ChangeToStatusTrue/@item.WriterId" class="btn btn-outline-success">Aktif Yap</a></td>
-                                            }
+                                            <td>@item.Icon</td>
+                                            <td>@item.Url</td>
+                                            <td><a href="/Admin/SocialMedia/DeleteSocialMedia/@item.SocialMediaID/" class="btn btn-outline-danger">Sil</a></td>
+                                            <td><a href="/Admin/SocialMedia/UpdateSocialMedia/@item.SocialMediaID/" class="btn btn-outline-success">Güncelle</a></td>
 
                                         </tr>
                                     }
                                 </tbody>
                             </table>
+                            <a href="/Admin/SocialMedia/CreateSocialMedia/" class="btn btn-outline-primary">Yeni Sosyal Medya Girişi</a>
                         </div>
 
                     </div>

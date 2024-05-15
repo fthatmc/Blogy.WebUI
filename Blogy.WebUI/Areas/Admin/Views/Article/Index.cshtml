@@ -1,8 +1,9 @@
-﻿@model List<Writer>
+﻿@model List<Article>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+
     int count = 0;
 }
 
@@ -23,10 +24,12 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Adı</th>
-                                        <th>Açıklama</th>
+                                        <th>Başlık</th>
+                                        <th>Yazarı</th>
                                         <th>Resim</th>
+                                        <th>Tarih</th>
                                         <th>Sil</th>
+                                        <th>Güncelle</th>
                                         <th>Durum</th>
                                     </tr>
                                 </thead>
@@ -36,24 +39,27 @@
                                         count++;
                                         <tr>
                                             <th scope="row">@count</th>
-                                            <td>@item.Name</td>
-                                            <td>@item.Description</td>
-                                            <td><img class="rounded-circle header-profile-user" alt="" src="@item.ImageUrl" /></td>
-                                            <td><a href="/Admin/Writer/DeleteWriter/@item.WriterId/" class="btn btn-outline-danger">Sil</a></td>
-                                            
+                                            <td>@item.Title</td>
+                                            <td>@item.Writer.Name</td>
+                                            <td><img class="rounded-circle header-profile-user" alt="" src="@item.CoverImageUrl" /></td>
+                                            <td>@item.CreateDate.ToShortDateString()</td>
+                                            <td><a href="/Admin/Article/DeleteArticle/@item.ArticleId/" class="btn btn-outline-danger">Sil</a></td>
+                                            <td><a href="/Admin/Article/UpdateArticle/@item.ArticleId/" class="btn btn-outline-info">Güncelle</a></td>
+
                                             @if (@item.Status == true)
                                             {
-                                                <td><a href="/Admin/Writer/ChangeToStatusFalse/@item.WriterId" class="btn btn-outline-warning">Pasif Yap</a></td>
+                                                <td><a href="/Admin/Article/ChangeToStatusFalse/@item.ArticleId" class="btn btn-outline-danger">Pasif Yap</a></td>
                                             }
                                             else
                                             {
-                                                <td><a href="/Admin/Writer/ChangeToStatusTrue/@item.WriterId" class="btn btn-outline-success">Aktif Yap</a></td>
+                                                <td><a href="/Admin/Article/ChangeToStatusTrue/@item.ArticleId" class="btn btn-outline-success">Aktif Yap</a></td>
                                             }
 
                                         </tr>
                                     }
                                 </tbody>
                             </table>
+                            <a href="/Admin/Article/CreateArticle/" class="btn btn-outline-primary">Yeni Blog Girişi</a>
                         </div>
 
                     </div>

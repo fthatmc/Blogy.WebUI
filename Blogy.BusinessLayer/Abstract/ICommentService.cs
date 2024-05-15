@@ -11,5 +11,8 @@ namespace Blogy.BusinessLayer.Abstract
     {
         List<Comment> TGetCommentsByArticleId(int id);
         List<Comment> TGetListAll(int id);
+        List<Comment> TGetCommentsWithArticleAndUser();
+        void TChangeToStatusTrue(int id);
+        void TChangeToStatusFalse(int id);
     }
 }

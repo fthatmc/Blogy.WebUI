@@ -2,6 +2,7 @@
 using Blogy.DataAccesLayer.Context;
 using Blogy.DataAccesLayer.Repository;
 using Blogy.EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,29 @@ namespace Blogy.DataAccesLayer.EntityFramework
 		{
 		}
 
-		public List<Comment> GetCommentsByArticleId(int id)
+        public void ChangeToStatusFalse(int id)
+        {
+            var values = context.Comments.Find(id);
+            values.Status = false;
+            context.SaveChanges();
+        }
+
+        public void ChangeToStatusTrue(int id)
+        {
+            var values = context.Comments.Find(id);
+            values.Status = true;
+            context.SaveChanges();
+        }
+
+        public List<Comment> GetCommentsByArticleId(int id)
         {
             var values = context.Comments.Where(x => x.ArticleID == id).ToList();
+            return values;
+        }
+
+        public List<Comment> GetCommentsWithArticleAndUser()
+        {
+            var values = context.Comments.Include(x => x.Article).Include(x => x.AppUser).ToList();
             return values;
         }
 
