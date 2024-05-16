@@ -3,7 +3,7 @@
 ## Projenin Amacı
 
 Bu proje kullanıcılarına sisteme kayıt olduktan sonra blog paylaşabilme ve diğer yazarlar tarafından paylaşılan bloglara göz atabilme imkanı sunmakla birlikte her kullanıcıya özel yönetim paneli ile hava durumu, istatistikler, makalelere gelen yorumlar, bildirimler ve grafiklere ulaşabilme imkanı sağlamaktadır. 
-Admin tarafı ise Makale ve yazarların durumlarını aktif-pasif etme ve CRUD işlemler yapılabilmektedir.
+Admin tarafı ise, makale ve yazarların durumlarını aktif-pasif etme ve CRUD işlemler yapılabilmektedir.
 
 ## Kullanılan Teknolojiler
 
