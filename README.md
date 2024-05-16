@@ -1,3 +1,23 @@
+# BLOGY
+
+## Projenin Amacı
+
+Bu proje kullanıcılarına sisteme kayıt olduktan sonra blog paylaşabilme ve diğer yazarlar tarafından paylaşılan bloglara göz atabilme imkanı sunmakla birlikte her kullanıcıya özel yönetim paneli ile hava durumu, istatistikler, makalelere gelen yorumlar, bildirimler ve grafiklere ulaşabilme imkanı sağlamaktadır. 
+Admin tarafı ise Makale ve yazarların durumlarını aktif-pasif etme ve CRUD işlemler yapılabilmektedir.
+
+## Kullanılan Teknolojiler
+
+-	AspNet Core 6.0
+-	Entity Framework Core
+-	N Tier Architecture
+-	Repository Design Pattern
+-	Identity
+-	Proje Seviyesinde Authorize
+-	Rapid Api ile Hava Durumu Bilgisi
+-	Google Chart
+-	Çoklu Dil Desteği
+-	Fluent Validation
+
 
 ![1](https://github.com/fthatmc/Blogy.WebUI/assets/136472585/1873b925-bb57-4736-81c2-f401a40f7a63)
 ![2](https://github.com/fthatmc/Blogy.WebUI/assets/136472585/05ea61ad-c84c-40b1-8bef-173b1b628d3f)
